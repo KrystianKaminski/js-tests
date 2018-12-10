@@ -19,3 +19,9 @@ const orderTotal = (arrayOfOrders) => {
 }
 
 console.log(orderTotal(orders)) // should log 25
+
+if (
+    orderTotal(orders) !== 25
+) {
+    throw new Error('Simple sum failed!')
+}
