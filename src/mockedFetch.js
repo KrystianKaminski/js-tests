@@ -4,7 +4,7 @@
 // is function that 
 // returns an array
 
-[
+const orders = [
     {
         name: 'Lager',
         price: 10
@@ -14,3 +14,9 @@
         price: 15
     },
 ]
+
+export const mockedFetch = () => {
+    return Promise.resolve({
+        json: () => orders
+    })
+}
