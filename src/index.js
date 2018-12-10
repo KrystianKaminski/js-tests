@@ -31,4 +31,3 @@ export const fetchOrdersAndCalculateTotal = () => (
         .then(data => orderTotal(data))
 )
 
-console.log(fetchOrdersAndCalculateTotal())

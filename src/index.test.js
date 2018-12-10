@@ -1,4 +1,4 @@
-import { orderTotal } from './index'
+import { orderTotal, fetchOrdersAndCalculateTotal } from './index'
 
 describe('Sum without quantity', () => {
 
@@ -97,5 +97,14 @@ describe('Sum with shipping', () => {
         expect(
             orderTotal(orders2)
         ).toBe(45)
+    })
+})
+
+describe('Fetching data to calculate sum', () => {
+    test('Fetching data without quantity', () => {
+        return (
+            fetchOrdersAndCalculateTotal()
+                .then(total => expect(total).toBe(25))
+        )
     })
 })
