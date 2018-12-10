@@ -102,10 +102,9 @@ describe('Sum with shipping', () => {
 })
 
 describe('Fetching data to calculate sum', () => {
-    fetch = mockedFetch
     test('Fetching data without quantity', () => {
         return (
-            fetchOrdersAndCalculateTotal()
+            fetchOrdersAndCalculateTotal(mockedFetch)
                 .then(total => expect(total).toBe(25))
         )
     })

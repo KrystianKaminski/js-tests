@@ -25,7 +25,7 @@ export const orderTotal = (arrayOfOrders) => {
 }
 
 
-export const fetchOrdersAndCalculateTotal = () => (
+export const fetchOrdersAndCalculateTotal = (fetch) => (
     fetch('https://ad-snadbox.firebaseio.com/jfddl6/orders.json')
         .then(r => r.json())
         .then(data => orderTotal(data))
