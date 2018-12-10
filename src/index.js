@@ -1,12 +1,27 @@
-export const orderTotal = (arrayOfOrders) => (
+export const orderTotal = (arrayOfOrders) => {
 
-    arrayOfOrders.reduce(
-        (reduced, item, index, array) => (
-            item.quantity !== undefined ?
-            reduced + (item.price * item.quantity)
-            :
-            reduced + item.price
+    const preTotal = arrayOfOrders
+        .reduce(
+            (reduced, item, index, array) => (
+                item.quantity !== undefined ?
+                    reduced + (item.price * item.quantity)
+                    :
+                    reduced + item.price
+            )
+            , 0
         )
-        , 0
+
+    const shipping = arrayOfOrders.find(item => item.shipping)
+
+    return (
+        shipping ?
+            preTotal >= (shipping.freeShipping + shipping.price) ?
+                preTotal - shipping.price
+                :
+                preTotal
+            :
+            preTotal
     )
-)
+}
+
+
